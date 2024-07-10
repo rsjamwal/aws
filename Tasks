@@ -1,0 +1,10 @@
+Tasks:
+
+Establish Kinesis Data Stream
+Inject mock data into the Kinesis stream
+Verify data in the Kinesis stream
+Configure a Lambda function to fetch data from the Kinesis stream and store it in DynamoDB, with the Kinesis stream as a trigger
+Validate Lambda function code
+Configure DynamoDB instance
+Perform system testing by sending 100 records to the Kinesis stream
+Perform a scan on DynamoDB to retrieve data
