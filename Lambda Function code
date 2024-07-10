@@ -1,0 +1,34 @@
+#Lambda Function code
+
+import json
+import boto3
+import base64
+from decimal import Decimal
+import uuid
+
+def lambda_handler(event, context):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('RohitKDSData')
+
+    for record in event['Records']:
+        # Kinesis data is base64 encoded so decode here
+        payload = base64.b64decode(record["kinesis"]["data"])
+        data_item = json.loads(payload)
+
+        # Ensure primary key attribute is present
+        if 'PKid' not in data_item:
+            # Generate a random UUID and assign it to PKid
+            data_item['PKid'] = str(uuid.uuid4())
+
+        # Convert float values to Decimal for DynamoDB
+        for key in data_item:
+            if isinstance(data_item[key], float):
+                data_item[key] = Decimal(str(data_item[key]))
+
+        # Put item to DynamoDB
+        table.put_item(Item=data_item)
+
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Successfully processed records.')
+    }
