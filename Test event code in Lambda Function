@@ -1,0 +1,16 @@
+#Test event code in Lambda Function
+
+{
+  "Records": [
+    {
+      "kinesis": {
+        "data": "eyJpZCI6MSwibmFtZSI6Ikdvb2QgUm9oaXRLRFNEIn0="
+      }
+    },
+    {
+      "kinesis": {
+        "data": "eyJpZCI6MiwibmFtZSI6IlN0ZXZlbiBEYXRhIn0="
+      }
+    }
+  ]
+}
