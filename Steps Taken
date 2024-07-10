@@ -1,0 +1,10 @@
+#Steps Taken
+
+Created a Kinesis Data Stream
+Injected mock data into the Kinesis stream
+Verified data availability in the Kinesis stream
+Configured a Lambda function to fetch and store Kinesis data in DynamoDB, triggered by the Kinesis stream
+Tested and validated Lambda function code
+Setup DynamoDB instance
+Conducted system tests by sending 100 records to the Kinesis stream
+Executed a DynamoDB scan operation to retrieve stored data
