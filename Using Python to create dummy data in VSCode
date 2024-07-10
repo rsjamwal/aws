@@ -1,0 +1,47 @@
+#Using Python to create dummy data in VSCode
+
+import json
+import boto3
+import random
+import time
+from faker import Faker
+
+# Initialize Faker
+fake = Faker()
+
+# Initialize Kinesis client
+kinesis = boto3.client('kinesis', region_name='us-east-1')  # replace 'your-region' with your actual region
+
+# Kinesis stream name
+stream_name = 'RohitKDS'  # replace with your stream name
+
+def generate_mock_data():
+    """Generate mock data."""
+    return {
+        'RJid': fake.uuid4(),
+        'RJname': fake.name(),
+        'RJemail': fake.email(),
+        'RJaddress': fake.address(),
+        'RJcreated_at': fake.iso8601()
+    }
+
+def send_to_kinesis(stream_name, data):
+    """Send data to Kinesis stream."""
+    response = kinesis.put_record(
+        StreamName=stream_name,
+        Data=json.dumps(data),
+        PartitionKey=str(random.randint(1, 1000))  # using random partition key
+    )
+    return response
+
+def main():
+    """Generate and send data continuously."""
+    for i in range (100):
+        data = generate_mock_data()
+        response = send_to_kinesis(stream_name, data)
+        print(f"Sent data: {data}")
+        print(f"Kinesis response: {response}")
+        time.sleep(1)  # adjust sleep time as needed
+
+if __name__ == '__main__':
+    main()
