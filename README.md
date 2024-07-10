@@ -4,6 +4,6 @@ Currently, they are looking to implement a robust architecture for NoSQL-based d
 
 Skills utilized in the project and their relevance in the field include:
 
-AWS Management Console: A comprehensive web application for managing various AWS services.
-Kinesis Data Streams: A scalable serverless solution for capturing, processing, and storing streaming data.
+AWS Management Console: A comprehensive web application for managing various AWS services./n
+Kinesis Data Streams: A scalable serverless solution for capturing, processing, and storing streaming data./n
 Lambda Function: A serverless compute service that executes code in response to events, managing compute resources seamlessly.
