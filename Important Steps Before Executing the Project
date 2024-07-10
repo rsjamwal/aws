@@ -1,0 +1,17 @@
+#Important Steps Before Executing the Project:
+
+Install Python (I'm using Windows, so I installed Python for Windows).
+Install Visual Studio Code (VSCode).
+Install faker using pip from the VSCode terminal: pip install faker.
+Install boto3 using pip from the VSCode terminal: pip install boto3.
+
+Configure Your AWS Credentials, Open your command prompt or terminal and run the following command:
+aws configure
+You will be prompted to enter your AWS credentials:
+AWS Access Key ID [None]: your_access_key_id
+AWS Secret Access Key [None]: your_secret_access_key
+Default region name [None]: us-east-1
+Default output format [None]: json
+
+
+Ensure you have a Lambda execution role. This role will be automatically created when you create the Lambda Function. Ensure it has necessary permissions such as AmazonKinesisFullAccess, AmazonDynamoDBFullAccess, or AdministratorAccess.
