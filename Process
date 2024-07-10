@@ -1,0 +1,10 @@
+#Process:
+
+Create a Kinesis Data Stream
+Populate the Kinesis stream with mock data
+Confirm data visibility in the Kinesis stream
+Establish a Lambda function to retrieve data from Kinesis and store it in DynamoDB, using the Kinesis stream as a trigger
+Validate Lambda function functionality
+Configure DynamoDB setup
+Conduct system testing by sending 100 records to Kinesis
+Perform a DynamoDB scan operation
